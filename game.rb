@@ -14,6 +14,9 @@ class Game
     def initialize
         @computer = Computer.new
         @player = Player.new
+
+        # to get Player.word_guess = ["_","_","_","_","_"]
+        @computer.secret_word.length.times { @player.word_guess.push("_")}
     end
 
     def play

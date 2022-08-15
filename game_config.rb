@@ -10,8 +10,16 @@ module Game_config
     end
 
     def new_game
-        game_instruction
-        letter_guess = get_letter_guess
+        for i in 1..5 do
+            game_instruction
+            letter_guess = get_letter_guess
+            if letter_guess != "save"
+                check_correct_guess(letter_guess)
+            else
+                puts "Not working yet...."
+                save_file
+            end
+        end
     end
 
     def get_letter_guess
@@ -24,5 +32,15 @@ module Game_config
         letter_guess
     end
 
-    def
+    def check_correct_guess(letter_guess)
+
+        @computer.secret_word.split("").each_with_index do |secret_code_letter, index|
+            if secret_code_letter == letter_guess
+                @player.word_guess[index] = letter_guess
+            end
+        end
+        @player.letters_guessed.push(letter_guess)
+        p @computer
+        p @player
+    end
 end

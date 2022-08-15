@@ -1,6 +1,6 @@
 module Computer_class
     class Computer
-        attr_reader :secret_word
+        attr_accessor :secret_word
 
         def initialize
             @secret_word = select_secret_word
