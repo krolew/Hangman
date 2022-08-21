@@ -42,13 +42,27 @@ module TextContent
     end
 
     def game_over_info
-        puts ""
+        puts "\nCorrect word: #{@computer.secret_word.red}"
         puts "Game over! :("
         puts "Try again later :)"
+
     end
 
     def game_win_info
-        puts "Good Job! You GUESSED the word!!!!!".green
+        puts"#{@player.word_guess.join("").bold.magenta}"
+        puts "\nGood Job! You GUESSED the word!!!!!".green
+    end
+
+    def choose_game_info
+        print "\nChoose a game: ".bold.magenta
+    end
+
+    def propert_file_info
+        puts "Write a proper file name!".red
+    end
+
+    def file_saved_info
+        puts "File saved.".green
     end
 end
 
